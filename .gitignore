@@ -1,0 +1,16 @@
+.DS_Store
+**/.ipynb_checkpoints/
+_not_used/
+*.gdoc
+matan_check/
+Icon
+*.h5
+*.tex
+**/__pycache__/
+catboost_info
+*.csv.gz
+*.zip
+helper_data/
+predictions/
+*.gslides
+submissions/
