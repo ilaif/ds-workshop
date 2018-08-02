@@ -89,8 +89,6 @@ FastText word embeddings + LSTM text processing (Trained on GCP, need ~50GB to r
 
 #### [NN-LSTM-MERGED-TEXT-COMBINED-NODROPOUT](./NN/NN-Stephan-LSTM-MERGED-TEXT-COMBINED-NODROPOUT.ipynb)
 
-#### [NN-LSTM-MERGED-TEXT-COMBINED](./NN/NN-Stephan-LSTM-MERGED-TEXT-COMBINED.ipynb)
-
 #### [NN-JUST-LSTM-MERGED-NODROPOUT](./NN/NN-Stephan-JUST-LSTM-MERGED-NODROPOUT.ipynb)
 
 
