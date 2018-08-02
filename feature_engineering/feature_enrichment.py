@@ -5,10 +5,9 @@ import multiprocessing
 import numpy as np
 import os
 import zipfile
-import string
 import gc
 
-from utils.compute_util import load_df
+from compute_util import load_df
 
 def basic_enrichment(train, test, helper_data_path):
     print('Adding basic features...')
@@ -23,6 +22,10 @@ def basic_enrichment(train, test, helper_data_path):
         df['day'] = df['activation_date'].apply(lambda d: d.day)
         df['weekday'] = pd.to_datetime(df['activation_date']).dt.day
 
+        #cities_geo = json.load(open(helper_data_path+'//cities_geo.json', 'r'))
+        #cities_geo_df = pd.DataFrame(cities_geo).transpose().reset_index()
+        #cities_geo_df.columns = ['city', 'lat', 'lng']
+        #df = df.merge(cities_geo_df, on='city', how='left')
         for col in ['param_1', 'param_2', 'param_3', 'title', 'description']:
             df[col].fillna("", inplace=True)        
         # Add count features
@@ -136,22 +139,8 @@ def load_text_features(train, test, helper_data_path, tf_idf=True):
         train = pd.concat([train,tfidf_df],axis=1)
         if test is not None:
             tfidf_df = load_df(helper_data_path, 'test_tfidf_svd.csv.gz')
-            test = pd.concat([test,tfidf_df],axis=1)  
-    
-    def more_text_count_features(df):
-        count = lambda l1,l2: sum([1 for x in l1 if x in l2])
-        for col in ['description', 'title']:
-            df['num_unique_words_' + col] = df[col].apply(lambda comment: len(set(w for w in comment.split())))
-
-        df['num_desc_punct'] = df['description'].apply(lambda x: count(x, set(string.punctuation)))
-
-        df['words_vs_unique_title'] = df['num_unique_words_title'] / df['title_word_count'] * 100
-        df['words_vs_unique_description'] = df['num_unique_words_description'] / df['description_word_count'] * 100
-        return df
-    
-    
-    train = more_text_count_features(train)
-    test = more_text_count_features(test)
+            test = pd.concat([test,tfidf_df],axis=1)    
+        
     print('Done loading text features.')
     gc.collect()
     return train, test
