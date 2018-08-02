@@ -4,7 +4,7 @@
 # Avito Demand Prediction Challenge
 Our challenge is to predict demand for online ads by exposed features.
 
-### [Project Documentation](./Project Documentation.pdf)
+### [Project Documentation](./project_documentation.pdf)
 
 ## Dataset
 
