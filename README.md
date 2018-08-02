@@ -1,5 +1,5 @@
 
-<img src="https://www.avito.ru/files/avito/company/logos/Logo-Avito.png" alt="Avito Logo" width="400px"/>
+<p align="center"><img src="https://www.avito.ru/files/avito/company/logos/Logo-Avito.png" alt="Avito Logo" width="400px"/></p>
 
 # Avito Demand Prediction Challenge
 Our challenge is to predict demand for online ads by exposed features.
