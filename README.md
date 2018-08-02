@@ -58,7 +58,7 @@ CatBoost is a competitor of LGBM, but with inferior results as seen in the noteb
 
 We trained LGBM for a few iterations, and improved the features and hyperparameters in every iteration until we got our best score:
 
-#### [LGBM - Final iteration Notebook](./algorithms/lgbm_final-0.2281.ipynb)
+#### [LGBM - Final iteration Notebook](./algorithms/lgbm_final-0.2279.ipynb)
 
 ### Neural Networks and Deep Learning
 
