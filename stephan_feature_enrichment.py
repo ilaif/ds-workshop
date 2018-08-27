@@ -7,7 +7,7 @@ import os
 import zipfile
 import gc
 
-from compute_util import load_df
+from utils.compute_util import load_df
 
 def basic_enrichment(train, test, helper_data_path):
     print('Adding basic features...')

@@ -8,7 +8,7 @@ import zipfile
 import string
 import gc
 
-from utils.compute_util import load_df
+from compute_util import load_df
 
 def basic_enrichment(train, test, helper_data_path):
     print('Adding basic features...')
@@ -44,6 +44,8 @@ def basic_enrichment(train, test, helper_data_path):
         # Merge Params to one text feature. Do not delete the params themselves.
 
         df['title_description_params']= (df['title']+' '+df['description']+' '+df['param_1']+' '+df['param_2']+' '+df['param_3']).astype(str)
+        df['description'] = df['description'].astype(str)
+        df['title'] = df['title'].astype(str)
     
     print('Done adding basic features.')
     gc.collect()
@@ -152,6 +154,7 @@ def load_text_features(train, test, helper_data_path, tf_idf=True):
     
     train = more_text_count_features(train)
     test = more_text_count_features(test)
+    
     print('Done loading text features.')
     gc.collect()
     return train, test

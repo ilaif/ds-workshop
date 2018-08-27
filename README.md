@@ -6,9 +6,15 @@ Our challenge is to predict demand for online ads by exposed features.
 
 ### [Project Documentation](./project_documentation.pdf)
 
+## Setup instructions:
+* cd into this README.md's folder 
+* install requirements `pip install requirements.txt`
+* download [./helper_data](https://drive.google.com/open?id=1GrepBq4JiV4LZ9lvslF8ygDzxrgg8WzD) folder and place it in cwd.
+* download 
+
 ## Dataset
 
-* #### [Original Dataset from Kaggle](https://www.kaggle.com/c/avito-demand-prediction/data)
+* #### [Original Dataset from Kaggle](https://www.kaggle.com/c/avito-demand-prediction/data) 
 * #### [./helper_data Folder](https://drive.google.com/open?id=1GrepBq4JiV4LZ9lvslF8ygDzxrgg8WzD)
 (Where we keep all of the intermediary outputs of extracted features, etc...)
 
@@ -24,7 +30,7 @@ The feature engineering was composed of 4 main steps:
 * #### Data Imputation (see below)
 * #### [Image Feature Engineering Notebook](./feature_engineering/image_feature_engineering.ipynb)
 * #### [Text Feature Engineering Notebook](./feature_engineering/nlp_feature_engineering.ipynb)
-* #### [Categorical Feature Engineering](./feature_engineering/feature_enrichment.py)
+* #### [Categorical Feature Engineering](./feature_enrichment.py)
 
 ### Data Imputation
 
@@ -34,7 +40,7 @@ We leveraged deep learning models to learn missing data of important features. W
 #### [Imputating image_top_1 as a class with NN notebook](./feature_engineering/NN-Stephan-LearnImageTop1.ipynb)
 #### [Imputating price with NN notebook](./feature_engineering/NN-Stephan-LearnPrice.ipynb)
 
-***[feature_enrichment.py](./utils/feature_enrichment.py)*** module contains the loading functions for some of the resulted feature engineering work.
+***[feature_enrichment.py](feature_enrichment.py)*** module contains the loading functions for some of the resulted feature engineering work.
 
 All outputs of the various feature engineering tasks are outputted as the following files and loaded as features before running the algorithms.
 
@@ -44,21 +50,15 @@ The first algorithm family that comes to mind after exploring the data and extra
 
 ### Naive Learning
 
-We first run some basic algorithms to produce naive results:
+We first run some basic algorithms to produce naive results, along with CatBoost, a competitor of LGBM, but with inferior results as seen in the notebook.
 
-#### [Naive Learning Notebook](./algorithms/naive_learning.ipynb)
-
-### CatBoost
-
-CatBoost is a competitor of LGBM, but with inferior results as seen in the notebook
-
-#### [CatBoost Notebook](./algorithms/catboost.ipynb)
+#### [Naive Learning Notebook](naive_learning.ipynb)
 
 ### LGBM
 
 We trained LGBM for a few iterations, and improved the features and hyperparameters in every iteration until we got our best score:
 
-#### [LGBM - Final iteration Notebook](./algorithms/lgbm_final-0.2279.ipynb)
+#### [LGBM - Final iteration Notebook](./lgbm_final-0.2279.ipynb)
 
 ### Neural Networks and Deep Learning
 
@@ -67,32 +67,32 @@ As mentioned in the documentation, We had trained 10 neural networks:
 
 TF-IDF text vectorization:
 
-#### [NN-TFIDF-SEPARATED-UNIGRAMS](./NN/NN-Stephan-NN-TFIDF-SEPARATED-UNIGRAMS-nodropout.ipynb)
+#### [NN-TFIDF-SEPARATED-UNIGRAMS](./NN-Stephan-NN-TFIDF-SEPARATED-UNIGRAMS-nodropout.ipynb)
 
-#### [NN-TFIDF-SEPARATED-BIGRAMS](./NN/NN-Stephan-NN-TFIDF-SEPARATED-BIGRAMS-nodropout.ipynb)
+#### [NN-TFIDF-SEPARATED-BIGRAMS](./NN-Stephan-NN-TFIDF-SEPARATED-BIGRAMS-nodropout.ipynb)
 
-#### [NN-TFIDF-MERGED-UNI](./NN/NN-Stephan-NN-TFIDF-MERGED-UNI-nodropout.ipynb)
+#### [NN-TFIDF-MERGED-UNI](./NN-Stephan-NN-TFIDF-MERGED-UNI-nodropout.ipynb)
 
-#### [NN-TFIDF-MERGED-BIGRAMS](./NN/NN-Stephan-NN-TFIDF-MERGED-BIGRAMS-nodropout.ipynb)
+#### [NN-TFIDF-MERGED-BIGRAMS](./NN-Stephan-NN-TFIDF-MERGED-BIGRAMS-nodropout.ipynb)
 
 CountVec text vectorization:
 
-#### [NN-CountVec-SEPARATED-UNIGRAMS](./NN/NN-Stephan-NN-CountVec-SEPARATED-UNIGRAMS-nodropout.ipynb)
+#### [NN-CountVec-SEPARATED-UNIGRAMS](./NN-Stephan-NN-CountVec-SEPARATED-UNIGRAMS-nodropout.ipynb)
 
-#### [NN-CountVec-SEPARATED-BIGRAMS](./NN/NN-Stephan-NN-CountVec-SEPARATED-BIGRAMS-nodropout.ipynb)
+#### [NN-CountVec-SEPARATED-BIGRAMS](./NN-Stephan-NN-CountVec-SEPARATED-BIGRAMS-nodropout.ipynb)
 
-#### [NN-CountVec-MERGED-UNI-nodropout](./NN/NN-Stephan-NN-CountVec-MERGED-UNI-nodropout.ipynb)
+#### [NN-CountVec-MERGED-UNI-nodropout](./NN-Stephan-NN-CountVec-MERGED-UNI-nodropout.ipynb)
 
-#### [NN-CountVec-MERGED-BIGRAM](./NN/NN-Stephan-NN-CountVec-MERGED-BIGRAMS-nodropout.ipynb)
+#### [NN-CountVec-MERGED-BIGRAM](./NN-Stephan-NN-CountVec-MERGED-BIGRAMS-nodropout.ipynb)
 
 FastText word embeddings + LSTM text processing (Trained on GCP, need ~50GB to run):
 
-#### [NN-LSTM-MERGED-TEXT-COMBINED-NODROPOUT](./NN/NN-Stephan-LSTM-MERGED-TEXT-COMBINED-NODROPOUT.ipynb)
+#### [NN-LSTM-MERGED-TEXT-COMBINED-NODROPOUT](./NN-Stephan-LSTM-MERGED-TEXT-COMBINED-NODROPOUT.ipynb)
 
-#### [NN-JUST-LSTM-MERGED-NODROPOUT](./NN/NN-Stephan-JUST-LSTM-MERGED-NODROPOUT.ipynb)
+#### [NN-JUST-LSTM-MERGED](./NN-Stephan-JUST-LSTM-MERGED.ipynb)
 
 
 ### Ensembling
 For the general ensembling we've use two techniques, a meta-network (for non linear ensembling) and a lasso regression model (for linear ensembling). Those get as input the predictions of all other models and give the final prediction as an output.
 
-#### [The general ensemble](./NN/NN-Stephan-Ensemble.ipynb)
+#### [The general ensemble](./NN-Stephan-Ensemble.ipynb)

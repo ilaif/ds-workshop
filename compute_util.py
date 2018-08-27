@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_squared_error
 
-def load_data(data_path):
-    train = pd.read_csv(os.path.join(data_path, 'train.csv'), parse_dates=['activation_date'])
-    test = pd.read_csv(os.path.join(data_path, 'test.csv'), parse_dates=['activation_date'])
+def load_data(data_path, nrows=None):
+    train = pd.read_csv(os.path.join(data_path, 'train.csv'), parse_dates=['activation_date'], nrows=nrows)
+    test = pd.read_csv(os.path.join(data_path, 'test.csv'), parse_dates=['activation_date'], nrows=nrows)
     return train, test
 
 # from https://gist.github.com/yong27/7869662
