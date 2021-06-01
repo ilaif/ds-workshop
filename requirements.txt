@@ -144,7 +144,7 @@ testpath==0.3.1
 tornado==5.0.2
 traitlets==4.3.2
 transliterate==1.10.1
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==15.2.0
 virtualenv-clone==0.3.0
 virtualenvwrapper==4.8.2
